@@ -75,8 +75,8 @@ python distributed_mini_batch.py --model gatv2_neighsampler --dataset DGraphFin 
 
 ## Training Paramters
 
-model   模型.
-dataset 数据源.
+- model   模型.
+- dataset 数据源.
 epoch   若单机训练为每个run的迭代次数，若联邦学习则为每个globalepoch中client自身迭代次数.
 globalepoch  若联邦学习为server和client权重分享次数，默认为1，若单机训练则无意义.
 run     重复训练几次，这几次的准确率的统计数据会被打印出来.
