@@ -1,4 +1,4 @@
-This repo provides a collection of baselines for DGraphFin dataset. Please download the dataset from the [DGraph](http://dgraph.xinye.com) web and place it under the folder './dataset/DGraphFin/raw'.  
+This repo provides a collection of single-machine and federated baselines for DGraphFin dataset. Please download the dataset from the [DGraph](http://dgraph.xinye.com) web and place it under the folder './dataset/DGraphFin/raw'.  
 
 ## Environments
 Implementing environment:  
@@ -14,11 +14,17 @@ Implementing environment:
 ## Training
 
 - **MLP**
+- single-machine
 ```bash
 python gnn.py --model mlp --dataset DGraphFin --epochs 200 --runs 10 --device 0
 ```
+- federated 
+```bash
+python distributed.py --model mlp --dataset DGraphFin --epochs 200 --globalepoch 1 --datasplit random --delay 0 --runs 10 --device 0 —clients 3
+```
 
 - **GCN**
+- single-machine
 ```bash
 python gnn.py --model gcn --dataset DGraphFin --epochs 200 --runs 10 --device 0
 ```
