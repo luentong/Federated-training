@@ -1,0 +1,2 @@
+,lr,num_layers,hidden_channels,dropout,batchnorm,l2,layer_heads,train,train_std,valid,valid_std,test,test_std
+gat_neighsampler,0.003,2,128,0.0,False,5e-07,"[4, 1]",72.5373,,71.3049,,72.2191,

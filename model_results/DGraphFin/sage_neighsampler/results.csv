@@ -1,0 +1,2 @@
+,lr,num_layers,hidden_channels,dropout,batchnorm,l2,train,train_std,valid,valid_std,test,test_std
+sage_neighsampler,0.003,2,128,0.0,False,5e-07,76.1093,,74.6954,,75.5668,
