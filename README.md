@@ -8,7 +8,7 @@ Implementing environment:
 - torch_scatter = 2.0.8  
 - torch_sparse = 0.6.9  
 
-- GPU: Tesla V100 32G  
+- CPU: 2.5 GHz Intel Core i7
 
 
 ## Training
@@ -28,36 +28,48 @@ python distributed.py --model mlp --dataset DGraphFin --epochs 200 --globalepoch
 ```bash
 python gnn.py --model gcn --dataset DGraphFin --epochs 200 --runs 10 --device 0
 ```
+- federated 
+```bash
+python distributed.py --model gcn --dataset DGraphFin --epochs 200 --globalepoch 1 --datasplit random --delay 0 --runs 10 --device 0 —clients 3
+```
 
 - **GraphSAGE**
+- single-machine
 ```bash
 python gnn.py --model sage --dataset DGraphFin --epochs 200 --runs 10 --device 0
 ```
+- federated 
+```bash
+python distributed.py --model sage --dataset DGraphFin --epochs 200 --globalepoch 1 --datasplit random --delay 0 --runs 10 --device 0 —clients 3
+```
 
 - **GraphSAGE (NeighborSampler)**
+- single-machine
 ```bash
 python gnn_mini_batch.py --model sage_neighsampler --dataset DGraphFin --epochs 200 --runs 10 --device 0
+```
+- federated 
+```bash
+python distributed_mini_batch.py --model sage_neighsampler --dataset DGraphFin --epochs 200 --globalepoch 1 --datasplit random --delay 0 --runs 10 --device 0 —clients 3
 ```
 
 - **GAT (NeighborSampler)**
 ```bash
 python gnn_mini_batch.py --model gat_neighsampler --dataset DGraphFin --epochs 200 --runs 10 --device 0
 ```
+- federated 
+```bash
+python distributed.py --model mlp --dataset DGraphFin --epochs 200 --globalepoch 1 --datasplit random --delay 0 --runs 10 --device 0 —clients 3
+```
 
 - **GATv2 (NeighborSampler)**
 ```bash
 python gnn_mini_batch.py --model gatv2_neighsampler --dataset DGraphFin --epochs 200 --runs 10 --device 0
 ```
-
+- federated 
+```bash
+python distributed_mini_batch.py --model gatv2_neighsampler --dataset DGraphFin --epochs 200 --globalepoch 1 --datasplit random --delay 0 --runs 10 --device 0 —clients 3
+```
 
 ## Results:
-Performance on **DGraphFin**(10 runs):
-
-| Methods   | Train AUC  | Valid AUC  | Test AUC  |
-|  :----  | ----  |  ---- | ---- |
-| MLP | 0.7221 ± 0.0014 | 0.7135 ± 0.0010 | 0.7192 ± 0.0009 |
-| GCN | 0.7108 ± 0.0027 | 0.7078 ± 0.0027 | 0.7078 ± 0.0023 |
-| GraphSAGE| 0.7682 ± 0.0014 | 0.7548 ± 0.0013 | 0.7621 ± 0.0017 |
-| GraphSAGE (NeighborSampler)  | 0.7845 ± 0.0013 | 0.7674 ± 0.0005 | **0.7761 ± 0.0018** |
-| GAT (NeighborSampler)        | 0.7396 ± 0.0018 | 0.7233 ± 0.0012 | 0.7333 ± 0.0024 |
-| GATv2 (NeighborSampler)      | 0.7698 ± 0.0083 | 0.7526 ± 0.0089 | 0.7624 ± 0.0081 |
+Performance on **DGraphFin**:
