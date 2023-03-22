@@ -1,4 +1,4 @@
-This repo provides a collection of single-machine and federated baselines for DGraphFin dataset. Please download the dataset from the [DGraph](http://dgraph.xinye.com) web and place it under the folder './dataset/DGraphFin/raw'.  
+This repo provides a collection of single-machine and federated simulation on single machine (not parallel) baselines for DGraphFin dataset. Please download the dataset from the [DGraph](http://dgraph.xinye.com) web and place it under the folder './dataset/DGraphFin/raw'.  
 
 ## Environments
 Implementing environment:  
@@ -18,7 +18,7 @@ Implementing environment:
 ```bash
 python gnn.py --model mlp --dataset DGraphFin --epochs 200 --runs 10 --device 0
 ```
-- federated 
+- federated simulation
 ```bash
 python distributed.py --model mlp --dataset DGraphFin --epochs 200 --globalepoch 1 --datasplit random --delay 0 --runs 10 --device 0 —clients 3
 ```
@@ -28,7 +28,7 @@ python distributed.py --model mlp --dataset DGraphFin --epochs 200 --globalepoch
 ```bash
 python gnn.py --model gcn --dataset DGraphFin --epochs 200 --runs 10 --device 0
 ```
-- federated 
+- federated simulation
 ```bash
 python distributed.py --model gcn --dataset DGraphFin --epochs 200 --globalepoch 1 --datasplit random --delay 0 --runs 10 --device 0 —clients 3
 ```
@@ -38,7 +38,7 @@ python distributed.py --model gcn --dataset DGraphFin --epochs 200 --globalepoch
 ```bash
 python gnn.py --model sage --dataset DGraphFin --epochs 200 --runs 10 --device 0
 ```
-- federated 
+- federated simulation
 ```bash
 python distributed.py --model sage --dataset DGraphFin --epochs 200 --globalepoch 1 --datasplit random --delay 0 --runs 10 --device 0 —clients 3
 ```
@@ -48,25 +48,27 @@ python distributed.py --model sage --dataset DGraphFin --epochs 200 --globalepoc
 ```bash
 python gnn_mini_batch.py --model sage_neighsampler --dataset DGraphFin --epochs 200 --runs 10 --device 0
 ```
-- federated 
+- federated simulation
 ```bash
 python distributed_mini_batch.py --model sage_neighsampler --dataset DGraphFin --epochs 200 --globalepoch 1 --datasplit random --delay 0 --runs 10 --device 0 —clients 3
 ```
 
 - **GAT (NeighborSampler)**
+- single-machine
 ```bash
 python gnn_mini_batch.py --model gat_neighsampler --dataset DGraphFin --epochs 200 --runs 10 --device 0
 ```
-- federated 
+- federated simulation
 ```bash
 python distributed.py --model mlp --dataset DGraphFin --epochs 200 --globalepoch 1 --datasplit random --delay 0 --runs 10 --device 0 —clients 3
 ```
 
 - **GATv2 (NeighborSampler)**
+- single-machine
 ```bash
 python gnn_mini_batch.py --model gatv2_neighsampler --dataset DGraphFin --epochs 200 --runs 10 --device 0
 ```
-- federated 
+- federated simulation
 ```bash
 python distributed_mini_batch.py --model gatv2_neighsampler --dataset DGraphFin --epochs 200 --globalepoch 1 --datasplit random --delay 0 --runs 10 --device 0 —clients 3
 ```
